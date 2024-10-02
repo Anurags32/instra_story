@@ -7,7 +7,6 @@ class ApiService {
 
   Future<List<UserModel>> fetchStories() async {
     final response = await http.get(Uri.parse(apiUrl));
-
     if (response.statusCode == 200) {
       final Map<String, dynamic> responseData = json.decode(response.body);
 

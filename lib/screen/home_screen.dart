@@ -9,22 +9,22 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.purpleAccent,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text(
           'Stories',
           style: TextStyle(
-              fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
+              fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black),
         ),
         iconTheme: const IconThemeData(
-          color: Colors.white,
+          color: Colors.black,
         ),
-        backgroundColor: Colors.purpleAccent,
+        backgroundColor: Colors.white,
       ),
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.purpleAccent, Colors.blueAccent],
+            colors: [Colors.white54, Colors.white],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -55,22 +55,26 @@ class HomeScreen extends StatelessWidget {
                         margin: const EdgeInsets.symmetric(horizontal: 8.0),
                         child: Column(
                           children: [
-                            Container(
-                              decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black26,
-                                    blurRadius: 6,
-                                    offset: Offset(0, 4),
+                            Stack(
+                              children: [
+                                Container(
+                                  width: 80,
+                                  height: 80,
+                                  decoration: BoxDecoration(
+                                    border:
+                                        Border.all(width: 2, color: Colors.red),
+                                    borderRadius: BorderRadius.circular(100),
                                   ),
-                                ],
-                              ),
-                              child: CircleAvatar(
-                                radius: 40,
-                                backgroundImage:
-                                    NetworkImage(user.profilePicture),
-                              ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(2.0),
+                                    child: CircleAvatar(
+                                      radius: 40,
+                                      backgroundImage:
+                                          NetworkImage(user.profilePicture),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                             const SizedBox(height: 8),
                             Text(
@@ -78,7 +82,7 @@ class HomeScreen extends StatelessWidget {
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               style: const TextStyle(
-                                color: Colors.white,
+                                color: Colors.black,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),

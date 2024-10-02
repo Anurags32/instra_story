@@ -63,7 +63,7 @@ class _StoryScreenState extends State<StoryScreen> {
           _storyProgress = _controller!.value.position.inMilliseconds /
               _controller!.value.duration.inMilliseconds;
           if (_controller!.value.position >= _controller!.value.duration) {
-            _onTap(); 
+            _onTap();
           }
         });
       }
@@ -75,7 +75,7 @@ class _StoryScreenState extends State<StoryScreen> {
       setState(() {
         _storyProgress += 0.01;
         if (_storyProgress >= 1.0) {
-          _onTap(); 
+          _onTap();
         }
       });
     });
@@ -93,7 +93,7 @@ class _StoryScreenState extends State<StoryScreen> {
         _initializeStory(widget.user.stories[currentIndex]);
       });
     } else {
-      Navigator.pop(context); 
+      Navigator.pop(context);
     }
   }
 
@@ -102,7 +102,7 @@ class _StoryScreenState extends State<StoryScreen> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
         elevation: 0,
         title: Row(
           children: [
@@ -112,7 +112,7 @@ class _StoryScreenState extends State<StoryScreen> {
             const SizedBox(width: 10),
             Text(
               widget.user.userName,
-              style: const TextStyle(color: Colors.black),
+              style: const TextStyle(color: Colors.white),
             ),
           ],
         ),
@@ -178,8 +178,15 @@ class _StoryScreenState extends State<StoryScreen> {
                                   story.text,
                                   style: const TextStyle(
                                     color: Colors.white,
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.bold,
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.w600,
+                                    shadows: [
+                                      Shadow(
+                                        blurRadius: 8.0,
+                                        color: Colors.black45,
+                                        offset: Offset(2.0, 2.0),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ],
@@ -209,7 +216,8 @@ class _StoryScreenState extends State<StoryScreen> {
                                         : (i < currentIndex ? 1.0 : 0.0),
                                     backgroundColor: Colors.white30,
                                     valueColor: const AlwaysStoppedAnimation(
-                                        Colors.white),
+                                        Colors.lightGreenAccent),
+                                    minHeight: 5,
                                   ),
                                 ),
                               ),
